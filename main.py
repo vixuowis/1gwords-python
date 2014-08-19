@@ -36,8 +36,8 @@ def tokenize(raw_text):
   return result
 
 def isNumber(char):
-  numbers = ["1","2","3","4","5","6","7","8","9","0",u"一",u"二",u"三",u"四",u"五",u"六",u"七",u"八",u"九",u"零",u"十",u"百",u"千",u"万",u"亿"]
-
+  # numbers = ["1","2","3","4","5","6","7","8","9","0",u"一",u"二",u"三",u"四",u"五",u"六",u"七",u"八",u"九",u"零",u"十",u"百",u"千",u"万",u"亿"]
+  numbers = ["1","2","3","4","5","6","7","8","9","0"]
   if char in numbers:
     return True
   else:
@@ -84,7 +84,7 @@ text_list = exec_sql("SELECT * from posts ORDER BY RAND()")
 for text in text_list:
   analyzeText(text[5],all_hash)
 
-f = codecs.open("result_0818.txt",'w','utf-8')
+f = codecs.open("result_0819.txt",'w','utf-8')
 for (k,v) in sorted(all_hash.iteritems(), key=lambda (k,v): (v,k)):
   f.write(k+","+str(v)+"\n")
   print k,v
